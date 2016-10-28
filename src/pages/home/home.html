@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Clients</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list>
+  <ion-item>
+    <ion-label>First Name</ion-label>
+    <ion-input type="text" [(ngModel)]="firstname" name="firstname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Last Name</ion-label>
+    <ion-input type="text" [(ngModel)]="lastname" name="lastname"></ion-input>
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label>Gender</ion-label>
+    <ion-select [(ngModel)]="gender" name="gender">
+      <ion-option value="F">Female</ion-option>
+      <ion-option value="M">Male</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Langauge</ion-label>
+    <ion-select [(ngModel)]="language" name="language">
+      <ion-option *ngFor="let lang of languages" value="{{lang.id}}">{{lang.name}}</ion-option>
+    
+    </ion-select>
+  </ion-item>
+ <ion-item>
+    <ion-label>Phone</ion-label>
+    <ion-input type="number" [(ngModel)]="phone" name="phone"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label>Alternate Phone</ion-label>
+    <ion-input type="number" [(ngModel)]="altPhone" name="altPhone"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label>Next of keen</ion-label>
+    <ion-input type="text" [(ngModel)]="nok" name="nok"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label>Next of keen phone</ion-label>
+    <ion-input type="number" [(ngModel)]="NokPhone" name ="NokPhone"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>District</ion-label>
+    <ion-select [(ngModel)]="district" name="district">
+      <ion-option *ngFor="let district of districts" value="{{district.id}}">{{district.region_name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+ 
+  <ion-item>
+    <ion-label>Sub-County</ion-label>
+    <ion-select [(ngModel)]="subcounty" name="subcounty">
+      <ion-option *ngFor="let subcounty of app_subcounty" value="{{subcounty.id}}">{{subcounty.subcounty_name}}</ion-option>
+    </ion-select>
+  </ion-item>
+ 
+  <ion-item >
+    <ion-label>Parish</ion-label>
+    <ion-select [(ngModel)]="parish" name="parish">
+      <ion-option *ngFor="let parish of app_parish" value="{{parish.id}}">{{parish.parish_name}}</ion-option>
+    
+    </ion-select>
+  </ion-item>
+
+
+
+<div padding>
+  <button ion-button color="success" (click)="postDataToServer()" outline>Click To Add New Client</button>{{postMyClientToServer}}
+</div>
+</ion-list>
+</ion-content>
